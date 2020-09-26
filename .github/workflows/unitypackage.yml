@@ -7,6 +7,10 @@ jobs:
     name: Generate the Unity package file
     runs-on: ubuntu-latest
     steps:
+    - name: Set current date as env variable
+      run: echo "::set-env name=NOW::$(date +'%Y%m%d')"
+    - name: Echo $NOW 
+      run: echo $NOW
     - uses: actions/checkout@v2
     - run: |
         echo "Assets/BigfootDS/BigfootUnityUtilities.meta" > metaList
@@ -16,9 +20,9 @@ jobs:
 
     - uses: pCYSl5EDgo/create-unitypackage@master
       with:
-        package-path: 'legacyPackage/${{ github.event.repository.name }}_j${{ github.job }}_r${{ github.run_id }}_n${{ github.run_number }}.unitypackage'
+        package-path: 'legacyPackage/${{ github.event.repository.name }}_r${{ $NOW }}_n${{ github.run_number }}.unitypackage'
         include-files: metaList
     - uses: actions/upload-artifact@master
       with:
         path: legacyPackage
-        name: legacyPackage
+        name: ${{ github.event.repository.name }}_r${{ $NOW }}_n${{ github.run_number }}Package
