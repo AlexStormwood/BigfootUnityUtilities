@@ -1,2 +1,2 @@
 deploy:
-	git subtree push --prefix Assets origin upm
+	git subtree push --prefix Assets/BigfootDS/BigfootUnityUtilities/ origin upm

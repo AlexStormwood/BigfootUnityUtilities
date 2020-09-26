@@ -10,12 +10,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - name: Run Makefile 
+      run: make all
     - name: Set current date as env variable 
       id: date
       run: echo "::set-output name=date::$(date +'%Y%m%d')" 
     - run: |
-        echo "Assets/Runtime.meta" > metaList
-        find Assets/Runtime/ -name \*.meta >> metaList
+        echo "Assets/BigfootDS/BigfootUnityUtilities/Runtime.meta" > metaList
+        find Assets/BigfootDS/BigfootUnityUtilities/Runtime/ -name \*.meta >> metaList
 
     - run: mkdir legacyPackage
 
