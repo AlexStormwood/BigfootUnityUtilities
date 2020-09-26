@@ -7,13 +7,10 @@ jobs:
     name: Generate the Unity package file
     runs-on: ubuntu-latest
     steps:
-    - name: Set current date as env variable
-      run: echo "::set-env name=NOW::$(date +'%Y%m%d')"
-    - name: Echo $NOW 
-      run: echo $NOW
     - name: Set current date as Github Actions env variable 
       env: 
         NOW: ${{ $(date +'%Y%m%d') }}
+      run: echo $NOW
     - uses: actions/checkout@v2
     - run: |
         echo "Assets/BigfootDS/BigfootUnityUtilities.meta" > metaList
