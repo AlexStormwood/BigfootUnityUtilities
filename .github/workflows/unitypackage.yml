@@ -9,7 +9,7 @@ jobs:
     name: Generate the Unity package file
     runs-on: ubuntu-latest
     env: 
-      NOW: ${{ $(date +'%Y%m%d') }}
+      NOW: $(date +'%Y%m%d')
     steps:
     - uses: actions/checkout@v2
     - name: Check that current date is stored as env variable 
