@@ -1,3 +1,5 @@
+
+
 name: Create Unity Package
 
 on: push
@@ -6,12 +8,12 @@ jobs:
   create:
     name: Generate the Unity package file
     runs-on: ubuntu-latest
+    env: 
+      NOW: ${{ $(date +'%Y%m%d') }}
     steps:
-    - name: Set current date as Github Actions env variable 
-      env: 
-        NOW: ${{ $(date +'%Y%m%d') }}
-      run: echo $NOW
     - uses: actions/checkout@v2
+    - name: Check that current date is stored as env variable 
+      run: echo $NOW
     - run: |
         echo "Assets/BigfootDS/BigfootUnityUtilities.meta" > metaList
         find Assets/BigfootDS/BigfootUnityUtilities/ -name \*.meta >> metaList
