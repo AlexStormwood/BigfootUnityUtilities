@@ -1,0 +1,23 @@
+name: Create Unity Package
+
+on: push
+
+jobs:
+  echo:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - run: |
+        echo "Assets/BigfootDS/BigfootUnityUtilities.meta" > metaList
+        find Assets/BigfootDS/BigfootUnityUtilities/ -name \*.meta >> metaList
+
+    - run: mkdir a
+
+    - uses: pCYSl5EDgo/create-unitypackage@master
+      with:
+        package-path: 'a/output.unitypackage'
+        include-files: metaList
+    - uses: actions/upload-artifact@master
+      with:
+        path: a
+        name: package
