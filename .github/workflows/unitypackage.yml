@@ -10,8 +10,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Run Makefile 
-      run: make all
+
+
+    - name: Push package directory to subtree
+      uses: s0/git-publish-subdir-action@developer
+      env:
+        REPO: self
+        BRANCH: upm 
+        FOLDER: Assets/BigfootDS/BigfootUnityUtilities/
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+
     - name: Set current date as env variable 
       id: date
       run: echo "::set-output name=date::$(date +'%Y%m%d')" 
