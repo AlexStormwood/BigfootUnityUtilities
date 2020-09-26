@@ -3,7 +3,8 @@ name: Create Unity Package
 on: push
 
 jobs:
-  echo:
+  create:
+    name: Generate the Unity package file
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -11,13 +12,13 @@ jobs:
         echo "Assets/BigfootDS/BigfootUnityUtilities.meta" > metaList
         find Assets/BigfootDS/BigfootUnityUtilities/ -name \*.meta >> metaList
 
-    - run: mkdir a
+    - run: mkdir legacyPackage
 
     - uses: pCYSl5EDgo/create-unitypackage@master
       with:
-        package-path: 'a/output.unitypackage'
+        package-path: 'legacyPackage/${{ github.event.repository.name }}_j${{ github.job }}_r${{ github.run_id }}_n${{ github.run_number }}.unitypackage'
         include-files: metaList
     - uses: actions/upload-artifact@master
       with:
-        path: a
-        name: package
+        path: legacyPackage
+        name: legacyPackage
