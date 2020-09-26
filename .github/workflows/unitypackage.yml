@@ -11,6 +11,12 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: Set current date as env variable 
+      id: date
+      run: echo "::set-output name=date::$(date +'%Y%m%d')" 
+
+    - name: Make sure we have an output directory for the legacy package
+      run: mkdir legacyPackage
 
     - name: Push package directory to subtree
       uses: s0/git-publish-subdir-action@develop
@@ -21,19 +27,21 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 
-    - name: Set current date as env variable 
-      id: date
-      run: echo "::set-output name=date::$(date +'%Y%m%d')" 
-    - run: |
+
+
+    - name: Build legacy Unity package
+      run: |
         echo "Assets/BigfootDS/BigfootUnityUtilities/Runtime.meta" > metaList
         find Assets/BigfootDS/BigfootUnityUtilities/Runtime/ -name \*.meta >> metaList
-
-    - run: mkdir legacyPackage
-
+  
     - uses: pCYSl5EDgo/create-unitypackage@master
       with:
         package-path: 'legacyPackage/${{ github.event.repository.name }}_${{ steps.date.outputs.date }}_${{ github.run_number }}.unitypackage'
         include-files: metaList
+
+
+    - name: Upload legacy Unity package to repository Releases section
+
     - uses: actions/upload-artifact@master
       with:
         path: legacyPackage
@@ -46,4 +54,5 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GHR_PATH: legacyPackage
         # GHR_COMPRESS: zip
-    
+
+
