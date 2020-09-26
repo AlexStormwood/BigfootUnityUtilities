@@ -22,9 +22,9 @@ jobs:
 
     - uses: pCYSl5EDgo/create-unitypackage@master
       with:
-        package-path: 'legacyPackage/${{ github.event.repository.name }}_r${{ $NOW }}_n${{ github.run_number }}.unitypackage'
+        package-path: 'legacyPackage/${{ github.event.repository.name }}_r${{ env.NOW }}_n${{ github.run_number }}.unitypackage'
         include-files: metaList
     - uses: actions/upload-artifact@master
       with:
         path: legacyPackage
-        name: ${{ github.event.repository.name }}_r${{ $NOW }}_n${{ github.run_number }}Package
+        name: ${{ github.event.repository.name }}_r${{ env.NOW }}_n${{ github.run_number }}Package
