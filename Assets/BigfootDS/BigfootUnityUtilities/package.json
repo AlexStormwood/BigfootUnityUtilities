@@ -1,7 +1,7 @@
 {
     "name": "com.bigfootds.bigfootunityutilities",
     "displayName": "Bigfoot's Unity Utilities",
-    "version": "0.0.1",
+    "version": "1.0.7",
     "unity": "2020.1",
     "description": "Some handy helper functionality for BigfootDS projects.",
     "keywords": [
