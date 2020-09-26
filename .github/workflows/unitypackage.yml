@@ -14,8 +14,8 @@ jobs:
       id: date
       run: echo "::set-output name=date::$(date +'%Y%m%d')" 
     - run: |
-        echo "Assets/BigfootDS/BigfootUnityUtilities.meta" > metaList
-        find Assets/BigfootDS/BigfootUnityUtilities/ -name \*.meta >> metaList
+        echo "Assets.meta" > metaList
+        find Assets/ -name \*.meta >> metaList
 
     - run: mkdir legacyPackage
 
