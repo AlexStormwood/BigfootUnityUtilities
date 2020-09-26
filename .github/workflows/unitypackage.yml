@@ -21,9 +21,18 @@ jobs:
 
     - uses: pCYSl5EDgo/create-unitypackage@master
       with:
-        package-path: 'legacyPackage/${{ github.event.repository.name }}_r${{ steps.date.outputs.date }}_n${{ github.run_number }}.unitypackage'
+        package-path: 'legacyPackage/${{ github.event.repository.name }}_${{ steps.date.outputs.date }}_${{ github.run_number }}.unitypackage'
         include-files: metaList
     - uses: actions/upload-artifact@master
       with:
         path: legacyPackage
-        name: ${{ github.event.repository.name }}_r${{ steps.date.outputs.date }}_n${{ github.run_number }}Package
+        name: ${{ github.event.repository.name }}_${{ steps.date.outputs.date }}_${{ github.run_number }}Package
+    
+    - name: Create release
+      uses: fnkr/github-action-ghr@v1
+      if: startsWith(github.ref, 'refs/tags/')
+      env: 
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GHR_PATH: legacyPackage
+        GHR_COMPRESS: zip
+    
