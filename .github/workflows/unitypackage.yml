@@ -34,5 +34,5 @@ jobs:
       env: 
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GHR_PATH: legacyPackage
-        GHR_COMPRESS: zip
+        # GHR_COMPRESS: zip
     
