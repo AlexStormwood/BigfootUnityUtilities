@@ -42,7 +42,7 @@ jobs:
 
     - name: Upload legacy Unity package to repository Releases section
 
-    - uses: actions/upload-artifact@master
+      uses: actions/upload-artifact@master
       with:
         path: legacyPackage
         name: ${{ github.event.repository.name }}_${{ steps.date.outputs.date }}_${{ github.run_number }}Package
