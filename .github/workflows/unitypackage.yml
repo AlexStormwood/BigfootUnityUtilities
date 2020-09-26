@@ -14,8 +14,8 @@ jobs:
       id: date
       run: echo "::set-output name=date::$(date +'%Y%m%d')" 
     - run: |
-        echo "Assets.meta" > metaList
-        find Assets/ -name \*.meta >> metaList
+        echo "Runtime.meta" > metaList
+        find Assets/Runtime/ -name \*.meta >> metaList
 
     - run: mkdir legacyPackage
 
