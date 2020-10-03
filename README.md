@@ -11,22 +11,16 @@ This is mainly an educational example - the project, workflow & results are all 
 
 ### Automated Unity Project Semantic Versioning
 
-This is a process to update your project's version numbering on a variety of conditions while adhering to the general idea of [semantic version numbering](https://semver.org/). It updates version numbering based on a variety of criteria for different numbers:
-
-* Commits tagged "MAJOR"
-* Commits tagged "MINOR" or "TITLEUPDATE"
-* Nightly (to catch all untagged commits and put them into a "PATCH" build)
+This is a process to update your project's version numbering on a variety of conditions while adhering to the general idea of [semantic version numbering](https://semver.org/). It updates version numbering based on a variety of criteria!
 
 ### Automated Package Generation
 
-Using a combination of scheduled & triggered workflows
+This is a process using a combination of scheduled & triggered workflows to build both ye olde ".unitypackage" files & UPM-ready packages. For the full write-up on how this repository handles automated package generation, please visit [this page](./_Documentation/PackageGeneration.md).
 
 
 
 
 # TODO
 
-* Automated semantic versioning. Yeah, I know.
-
-
+* Expand on the semver stuff
 
