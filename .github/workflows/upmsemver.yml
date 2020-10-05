@@ -6,7 +6,7 @@ on: [push]
 
 jobs:
   create:
-    name: Update semver
+    name: Update semver in UPM package
     runs-on: ubuntu-latest
     
     steps:
@@ -18,11 +18,11 @@ jobs:
 
       - name: Find UPM package.json & increment its bundleVersion number
         uses: AlexHolderDeveloper/UnityUPMSemver@v0.0.1 # Change vX.X.X to whatever tag is newer in the AlexHolderDeveloper/UnityUPMSemver repository.
-        id: semver-update
+        id: semver-update-upm
         with:
           semver-update-type: 'patch' # Change this string to any suitable string mentioned in the Inputs section of this action's readme to suit your needs.
           upm-package-directory: '/'
-          
+
       # Validate that the number has been incremented correctly.
       - name: Get the new semver number
         run: echo "The new semver number for this Unity project is ${{ steps.semver-update.outputs.semver-number }}"
@@ -42,7 +42,7 @@ jobs:
 
       - name: Find ProjectSettings.asset & increment its bundleVersion number
         uses: AlexHolderDeveloper/UnityUPMSemver@v0.0.1 # Change vX.X.X to whatever tag is newer in the AlexHolderDeveloper/UnityUPMSemver repository.
-        id: semver-update
+        id: semver-update-main
         with:
           semver-update-type: 'patch' # Change this string to any suitable string mentioned in the Inputs section of this action's readme to suit your needs.
           upm-package-directory: '/Assets/BigfootDS/BigfootUnityUtilities/'
