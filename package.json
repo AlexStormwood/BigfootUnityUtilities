@@ -1,17 +1,20 @@
 {
-	"name": "com.bigfootds.bigfootunityutilities",
-	"displayName": "Bigfoot's Unity Utilities",
-	"version": "1.0.9",
-	"unity": "2020.1",
-	"description": "Some handy helper functionality for BigfootDS projects.",
-	"keywords": [
-		"bigfootds",
-		"unity"
-	],
-	"category": "Unity",
-	"author": {
-		"name": "BigfootDS",
-		"email": "contact@bigfootds.com",
-		"url": "https://bigfootds.com"
-	}
+    "name": "com.bigfootds.bigfootunityutilities",
+    "displayName": "Bigfoot's Unity Utilities",
+    "version": "1.0.9",
+    "unity": "2020.1",
+    "description": "Some handy helper functionality for BigfootDS projects.",
+    "keywords": [
+        "bigfootds",
+        "unity"
+    ],
+    "category": "Unity",
+    "author": {
+        "name":"BigfootDS",
+        "email":"contact@bigfootds.com",
+        "url": "https://bigfootds.com"
+    }
 }
+
+
+
