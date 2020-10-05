@@ -5,7 +5,7 @@ name: Update Unity UPM semantic versioning
 on: 
   workflow_run:
     workflows: ["Update Unity project semantic versioning"]
-    branches: [main]
+    branches: [master]
     types:
       - completed
 

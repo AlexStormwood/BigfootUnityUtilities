@@ -5,7 +5,7 @@ name: Create Unity Package
 on: 
   workflow_run:
     workflows: ["Update Unity UPM semantic versioning"]
-    branches: [main]
+    branches: [master]
     types:
       - completed
 
