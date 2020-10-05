@@ -2,7 +2,12 @@
 
 name: Create Unity Package
 
-on: push
+on: 
+  workflow_run:
+    workflows: ["Update Unity UPM semantic versioning"]
+    branches: [main]
+    types:
+      - completed
 
 jobs:
   create:

@@ -1,12 +1,17 @@
 
 
-name: Update Unity project semantic versioning
+name: Update Unity UPM semantic versioning
 
-on: [push]
+on: 
+  workflow_run:
+    workflows: ["Update Unity project semantic versioning"]
+    branches: [main]
+    types:
+      - completed
 
 jobs:
   create:
-    name: Update semver in UPM package
+    name: Update semver in UPM package & project settings
     runs-on: ubuntu-latest
     
     steps:
